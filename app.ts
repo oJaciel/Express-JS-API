@@ -1,5 +1,6 @@
-const express = require('express')
-import { PrismaClient } from '@prisma/client/extension'
+import express from 'express'
+import { PrismaClient } from '@prisma/client';
+
 
 //Implementando o Prisma
 const prisma = new PrismaClient()
@@ -7,11 +8,14 @@ const prisma = new PrismaClient()
 const app = express()
 const port = 3000 //Aqui define em qual porta vai rodar o app
 
+app.use(express.json())
+
 const baseUrl = '/api/students'
 
 //Rota para o get (read) dos alunos
-app.get(`${baseUrl}`, (req, res) => {
-  res.send('Aqui é o get dos alunos')
+app.get(`${baseUrl}`, async (req, res) => {
+  const students = await prisma.students.findMany()
+  res.json(students)
 })
 
 //Rota para o post (create) do alunos
