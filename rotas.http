@@ -4,6 +4,13 @@ GET http://localhost:3000/api/students
 ###
 
 POST http://localhost:3000/api/students
+Content-Type: application/json
+
+{
+    "name": "Jaciel",
+    "email": "jaciel@upf.br",
+    "age": 19
+}
 
 ###
 
