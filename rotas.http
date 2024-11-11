@@ -1,0 +1,14 @@
+//Criado utilizando o REST Client
+GET http://localhost:3000/api/students
+
+###
+
+POST http://localhost:3000/api/students
+
+###
+
+PUT http://localhost:3000/api/students/1
+
+###
+
+DELETE http://localhost:3000/api/students/1
