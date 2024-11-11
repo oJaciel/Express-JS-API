@@ -1,4 +1,8 @@
 const express = require('express')
+import { PrismaClient } from '@prisma/client/extension'
+
+//Implementando o Prisma
+const prisma = new PrismaClient()
 
 const app = express()
 const port = 3000 //Aqui define em qual porta vai rodar o app
