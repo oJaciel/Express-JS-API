@@ -51,8 +51,13 @@ app.put(`${baseUrl}/:id`, async (req, res) => {
 })
 
 //Rota para o delete dos alunos
-app.delete(`${baseUrl}/:id`, (req, res) => {
-  res.send('Aqui é o delete dos alunos')
+app.delete(`${baseUrl}/:id`, async (req, res) => {
+  const { id } = req.params; // Capturando o ID diretamente dos parâmetros da URL
+
+  const deletedStudent = await prisma.students.delete({
+    where: {id: id}
+  })
+  res.json("Aluno deletado com sucesso!")
 })
 
 app.listen(port);
