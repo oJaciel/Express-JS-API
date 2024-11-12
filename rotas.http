@@ -14,7 +14,14 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:3000/api/students/1
+PUT http://localhost:3000/api/students/62fe2543-7752-41a9-a7ad-1194656c2fde
+Content-Type: application/json
+
+{
+    "name": "Atualizando o nome"
+
+}
+
 
 ###
 

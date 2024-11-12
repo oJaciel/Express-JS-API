@@ -36,8 +36,18 @@ app.post(`${baseUrl}`, async (req, res) => {
 })
 
 //Rota para o put (update) dos alunos
-app.put(`${baseUrl}/:id`, (req, res) => {
-  res.send('Aqui é o put dos alunos')
+app.put(`${baseUrl}/:id`, async (req, res) => {
+  const { id } = req.params; // Capturando o ID diretamente dos parâmetros da URL
+
+  const updatedStudent = await prisma.students.update({
+    where: {id: id},
+    data: {
+      name: req.body.name,
+      email: req.body.email,
+      age: req.body.age
+    }
+  })
+  res.json(updatedStudent)
 })
 
 //Rota para o delete dos alunos
